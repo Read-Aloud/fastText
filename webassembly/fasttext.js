@@ -7,18 +7,7 @@
  */
 
 import fastTextModularized from './fasttext_wasm.js';
-const fastTextModule = fastTextModularized();
-
-let postRunFunc = null;
-const addOnPostRun = function(func) {
-  postRunFunc = func;
-};
-
-fastTextModule.addOnPostRun(() => {
-  if (postRunFunc) {
-    postRunFunc();
-  }
-});
+const fastTextModule = await fastTextModularized();
 
 const thisModule = this;
 const trainFileInWasmFs = 'train.txt';
@@ -517,4 +506,4 @@ class FastTextModel {
 }
 
 
-export {FastText, addOnPostRun};
+export {FastText};

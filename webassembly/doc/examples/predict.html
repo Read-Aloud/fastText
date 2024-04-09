@@ -15,9 +15,8 @@
             }
         }
 
-        import {FastText, addOnPostRun} from "./fasttext.js";
+        import {FastText} from "./fasttext.js";
 
-        addOnPostRun(() => {
             let ft = new FastText();
 
             const url = "lid.176.ftz";
@@ -34,7 +33,6 @@
                 console.log(text);
                 printVector(model.predict(text, 5, 0.0));
             });
-        });
 
     </script>
 </body>
